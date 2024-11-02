@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="dbe6659e-6786-401e-ba46-24552111ea06" activeEnvironment="Default" name="Sample Project" resourceRoot="" soapui-version="5.7.2" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings/>
+  <con:interface xsi:type="con:RestService" id="a1ec0b0d-86d2-4aef-843a-5e730df77cc5" wadlVersion="http://wadl.dev.java.net/2009/02" name="API Gateway" type="rest" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <con:settings/>
+    <con:definitionCache type="TEXT" rootPart=""/>
+    <con:endpoints>
+      <con:endpoint>https://my-json-server.typicode.com</con:endpoint>
+    </con:endpoints>
+    <con:resource name="Posts-Resource" path="/typicode/demo/posts" id="039e822b-2314-4333-a255-1214f0af6d17">
+      <con:settings/>
+      <con:parameters/>
+      <con:method name="Get Posts" id="a362a359-fe4a-4811-8e4b-dab6c9f54e79" method="GET">
+        <con:settings/>
+        <con:parameters/>
+        <con:representation type="RESPONSE">
+          <con:mediaType>application/json; charset=utf-8</con:mediaType>
+          <con:status>200</con:status>
+          <con:params/>
+          <con:element>Response</con:element>
+        </con:representation>
+        <con:request name="Request 1" id="4c7102c1-2794-444b-9091-8f72d0c9275c" mediaType="application/json">
+          <con:settings>
+            <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+          </con:settings>
+          <con:endpoint>https://my-json-server.typicode.com</con:endpoint>
+          <con:request/>
+          <con:originalUri>https://my-json-server.typicode.com/typicode/demo/posts</con:originalUri>
+          <con:credentials>
+            <con:authType>No Authorization</con:authType>
+          </con:credentials>
+          <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+          <con:jmsPropertyConfig/>
+          <con:parameters/>
+        </con:request>
+      </con:method>
+    </con:resource>
+    <con:resource name="Comments-Resource" path="/typicode/demo/comments" id="7571176c-1b84-4145-883c-bf9c612f843e">
+      <con:settings/>
+      <con:parameters/>
+      <con:method name="Method 1" id="ec506178-b582-468d-9349-6afed231252f" method="GET">
+        <con:settings/>
+        <con:parameters/>
+        <con:representation type="RESPONSE">
+          <con:mediaType>application/json; charset=utf-8</con:mediaType>
+          <con:status>200</con:status>
+          <con:params/>
+          <con:element>Response</con:element>
+        </con:representation>
+        <con:request name="Request 1" id="95ca7ee2-492d-437e-8558-588c8c76436d" mediaType="application/json">
+          <con:settings>
+            <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+          </con:settings>
+          <con:endpoint>https://my-json-server.typicode.com</con:endpoint>
+          <con:request/>
+          <con:originalUri>https://my-json-server.typicode.com/typicode/demo/comments</con:originalUri>
+          <con:credentials>
+            <con:authType>No Authorization</con:authType>
+          </con:credentials>
+          <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+          <con:jmsPropertyConfig/>
+          <con:parameters/>
+        </con:request>
+      </con:method>
+    </con:resource>
+  </con:interface>
+  <con:testSuite id="657a4195-974b-4d43-b1c2-53ed98d4f6dc" name="DEV">
+    <con:description>TestSuite generated for REST Service [https://my-json-server.typicode.com]</con:description>
+    <con:settings/>
+    <con:runType>SEQUENTIAL</con:runType>
+    <con:testCase id="1421d217-7f23-47a4-a771-ebb0f4daaec6" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Posts-Resource TestCase" searchProperties="true">
+      <con:description>TestCase generated for REST Resource [Posts-Resource] located at [/typicode/demo/posts]</con:description>
+      <con:settings/>
+      <con:testStep type="restrequest" name="Request 1" id="89722f63-e9eb-4dfb-b01a-64ec1dc443e1">
+        <con:settings/>
+        <con:config service="API Gateway" resourcePath="/typicode/demo/posts" methodName="Get Posts" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="Request 1" id="4c7102c1-2794-444b-9091-8f72d0c9275c" mediaType="application/json">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>https://my-json-server.typicode.com</con:endpoint>
+            <con:request/>
+            <con:originalUri>https://my-json-server.typicode.com/typicode/demo/posts</con:originalUri>
+            <con:assertion type="Simple Contains" id="4c7547f8-4dd0-4e85-85a2-ce36ad950d2c" name="Contains">
+              <con:configuration>
+                <token>"title": "Post 1"</token>
+                <ignoreCase>false</ignoreCase>
+                <useRegEx>false</useRegEx>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="Valid HTTP Status Codes" id="8453e119-f5e8-4c78-a467-e2e5dd79d277" name="Valid HTTP Status Codes">
+              <con:configuration>
+                <codes>200</codes>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="Simple Contains" id="f3643f65-975e-49a3-84a7-25e2118bb0db" name="Contains 1">
+              <con:configuration>
+                <token>dfsa</token>
+                <ignoreCase>false</ignoreCase>
+                <useRegEx>false</useRegEx>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:authType>No Authorization</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:jmsPropertyConfig/>
+            <con:parameters/>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:properties/>
+    </con:testCase>
+    <con:testCase id="c1de3229-909d-47ae-acec-a44ae2430e8f" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Comments-Resource TestCase" searchProperties="true">
+      <con:description>TestCase generated for REST Resource [Comments-Resource] located at [/typicode/demo/comments]</con:description>
+      <con:settings/>
+      <con:testStep type="restrequest" name="Request 1" id="045da98a-74d1-49c7-906f-a25917327265">
+        <con:settings/>
+        <con:config service="API Gateway" resourcePath="/typicode/demo/comments" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="Request 1" id="95ca7ee2-492d-437e-8558-588c8c76436d" mediaType="application/json">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>https://my-json-server.typicode.com</con:endpoint>
+            <con:request/>
+            <con:originalUri>https://my-json-server.typicode.com/typicode/demo/comments</con:originalUri>
+            <con:assertion type="Simple Contains" id="f342a272-ddf0-4d0c-91ed-46cefd41b842" name="Contains">
+              <con:configuration>
+                <token>"body": "some comment"</token>
+                <ignoreCase>false</ignoreCase>
+                <useRegEx>false</useRegEx>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="Valid HTTP Status Codes" id="4c798630-b79b-480c-b2de-988adf6cddf0" name="Valid HTTP Status Codes">
+              <con:configuration>
+                <codes>200</codes>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:authType>No Authorization</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:jmsPropertyConfig/>
+            <con:parameters/>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:properties/>
+    </con:testCase>
+    <con:properties/>
+  </con:testSuite>
+  <con:testSuite id="18a07661-0bcd-426f-a5c4-f2baf9720c87" name="SAT">
+    <con:description>TestSuite generated for REST Service [https://my-json-server.typicode.com]</con:description>
+    <con:settings/>
+    <con:runType>SEQUENTIAL</con:runType>
+    <con:testCase id="1373ea29-5a17-4352-8a5b-548ecef9112b" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Posts-Resource TestCase" searchProperties="true">
+      <con:description>TestCase generated for REST Resource [Posts-Resource] located at [/typicode/demo/posts]</con:description>
+      <con:settings/>
+      <con:testStep type="restrequest" name="Request 1" id="4ca9ae77-2627-4d09-95a3-bd70f7a8aa5e">
+        <con:settings/>
+        <con:config service="API Gateway" resourcePath="/typicode/demo/posts" methodName="Get Posts" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="Request 1" id="4c7102c1-2794-444b-9091-8f72d0c9275c" mediaType="application/json">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>https://my-json-server.typicode.com</con:endpoint>
+            <con:request/>
+            <con:originalUri>https://my-json-server.typicode.com/typicode/demo/posts</con:originalUri>
+            <con:assertion type="Simple Contains" id="4c7547f8-4dd0-4e85-85a2-ce36ad950d2c" name="Contains">
+              <con:configuration>
+                <token>"title": "Post 1"</token>
+                <ignoreCase>false</ignoreCase>
+                <useRegEx>false</useRegEx>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="Valid HTTP Status Codes" id="8453e119-f5e8-4c78-a467-e2e5dd79d277" name="Valid HTTP Status Codes">
+              <con:configuration>
+                <codes>200</codes>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:authType>No Authorization</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:jmsPropertyConfig/>
+            <con:parameters/>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:properties/>
+    </con:testCase>
+    <con:testCase id="89c2001c-a447-4c6f-942b-ae6f59cdb659" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Comments-Resource TestCase" searchProperties="true">
+      <con:description>TestCase generated for REST Resource [Comments-Resource] located at [/typicode/demo/comments]</con:description>
+      <con:settings/>
+      <con:testStep type="restrequest" name="Request 1" id="089ccbda-ce31-4f9e-ad7e-91c0205a9884">
+        <con:settings/>
+        <con:config service="API Gateway" resourcePath="/typicode/demo/comments" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="Request 1" id="95ca7ee2-492d-437e-8558-588c8c76436d" mediaType="application/json">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>https://my-json-server.typicode.com</con:endpoint>
+            <con:request/>
+            <con:originalUri>https://my-json-server.typicode.com/typicode/demo/comments</con:originalUri>
+            <con:assertion type="Simple Contains" id="f342a272-ddf0-4d0c-91ed-46cefd41b842" name="Contains">
+              <con:configuration>
+                <token>"body": "some comment"</token>
+                <ignoreCase>false</ignoreCase>
+                <useRegEx>false</useRegEx>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="Valid HTTP Status Codes" id="4c798630-b79b-480c-b2de-988adf6cddf0" name="Valid HTTP Status Codes">
+              <con:configuration>
+                <codes>200</codes>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:authType>No Authorization</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:jmsPropertyConfig/>
+            <con:parameters/>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:properties/>
+    </con:testCase>
+    <con:properties/>
+  </con:testSuite>
+  <con:properties/>
+  <con:wssContainer/>
+  <con:oAuth2ProfileContainer/>
+  <con:oAuth1ProfileContainer/>
+  <con:sensitiveInformation/>
+</con:soapui-project>
